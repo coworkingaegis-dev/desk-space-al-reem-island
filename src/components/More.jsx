@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { Reveal } from './Motion'
 import Icon from './Icon'
 import { testimonials, guides, guideTags, faqs, images, BUSINESS, MAIN_SITE } from '../data/content'
+import { PhoneLink } from './Navbar'
 
 const initials = (n) => n.split(' ').map((p) => p[0]).slice(0, 2).join('')
 
@@ -67,7 +68,7 @@ export function NearADGM() {
           </p>
           <dl className="nap">
             <div><dt>Address</dt><dd>{BUSINESS.name}, {BUSINESS.street}, {BUSINESS.city}, {BUSINESS.country}</dd></div>
-            <div><dt>Phone</dt><dd><a href={BUSINESS.phoneTel}>{BUSINESS.phoneDisplay}</a></dd></div>
+            <div><dt>Phone</dt><dd><PhoneLink>{BUSINESS.phoneDisplay}</PhoneLink></dd></div>
             <div><dt>Email</dt><dd><a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a></dd></div>
             <div><dt>Tours</dt><dd>Monday–Friday, 9 AM–6 PM · 24/7 access for dedicated desks</dd></div>
           </dl>
@@ -194,7 +195,7 @@ export function FinalCTA() {
           <p>Book a visit to the coworking space, or get a video walkthrough on WhatsApp today.</p>
           <div className="final-actions">
             <a className="btn btn-butter" href={`${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Aegis, I would like to book a desk on Al Reem Island.')}`} target="_blank" rel="noopener noreferrer">Book my desk</a>
-            <a className="btn btn-outline-light" href={BUSINESS.phoneTel}><Icon name="phone" size={16} />{BUSINESS.phoneDisplay}</a>
+            <PhoneLink className="btn btn-outline-light"><Icon name="phone" size={16} />{BUSINESS.phoneDisplay}</PhoneLink>
           </div>
         </div>
       </div>
