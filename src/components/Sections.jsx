@@ -20,7 +20,7 @@ export function Intro() {
           </p>
           <p>
             It is the simplest workspace Al Reem Island has for freelancers and small teams: desk space for rent Al Reem
-            Island style, month to month, run by <a href={`${MAIN_SITE}/`}>Aegis Coworking</a>. Think of it as an
+            Island style, month to month, run by Aegis Coworking. Think of it as an
             office desk Al Reem Island founders can move into tomorrow — a shared desk Al Reem Island members use
             without fit-out costs, and an affordable coworking space Al Reem Island budgets can handle.
           </p>
@@ -67,7 +67,6 @@ export function Compare() {
             </Reveal>
           ))}
         </div>
-        <p className="fine center">Not sure? Read <a href={`${MAIN_SITE}/blog/adgm-flexi-desk-enough-solo-business`}>is a flexi desk enough for a solo business</a>.</p>
       </div>
     </section>
   )
@@ -114,7 +113,7 @@ export function Plans() {
             Island teams keep all year, it is one shared workspace Al Reem Island members share — affordable desk
             space Abu Dhabi professionals can actually budget for.
           </p>
-          <p className="fine">No deposit, no admin or setup fees, free registration. Current offers on <a href={`${MAIN_SITE}/pricing`}>aegiscoworking.ae/pricing</a>.</p>
+          <p className="fine">No deposit, no admin or setup fees, free registration. Ask us on WhatsApp for current offers.</p>
         </div>
         <ol className="plan-stack" ref={listRef}>
           {plans.map((p, i) => (
