@@ -49,9 +49,9 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-lead hl" style={{ '--d': 4 }}>
-            Hot desks from <strong>AED 1,000</strong>, dedicated desks at <strong>AED 1,150</strong> and day passes
-            at <strong>AED 100</strong> — a coworking space Al Reem Island freelancers and ADGM startups share, on
-            Level 38 of Addax Tower.
+            For freelancers and remote workers: hot desks from <strong>AED 1,000</strong>, dedicated desks at{" "}
+            <strong>AED 1,150</strong> and day passes at <strong>AED 100</strong> — a coworking space Al Reem Island
+            freelancers share on Level 38 of Addax Tower, with no licence needed for a hot desk.
           </p>
           <div className="hero-ctas hl" style={{ '--d': 5 }}>
             <a className="btn btn-peri" href={`${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Aegis, I would like to reserve a desk on Al Reem Island.')}`} target="_blank" rel="noopener noreferrer">Reserve a desk <Icon name="arrow" size={16} /></a>
