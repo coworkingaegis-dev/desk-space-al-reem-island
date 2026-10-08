@@ -13,9 +13,9 @@ import boardroomImg from '../assets/desk-space-al-reem-island-boardroom.webp'
 
 export const SITE_URL = 'https://deskspacealreemisland.online'
 export const MAIN_SITE = 'https://www.aegiscoworking.ae'
-export const PAGE_TITLE = 'Desk Space Al Reem Island | Hot Desk AED 1,000 | Aegis ADGM'
+export const PAGE_TITLE = 'Desk Space Al Reem Island for Freelancers & Remote Workers'
 export const PAGE_DESCRIPTION =
-  'Desk space on Al Reem Island inside ADGM: hot desk AED 1,000, dedicated desk AED 1,150, day pass AED 100. Coworking space at Addax Tower, Level 38.'
+  'Desk space Al Reem Island for freelancers and remote workers: hot desk AED 1,000, dedicated desk AED 1,150 or a day pass for AED 100 at Addax Tower.'
 export const DATE_PUBLISHED = '2026-10-07'
 export const DATE_MODIFIED = '2026-10-07'
 
@@ -38,6 +38,9 @@ export const BUSINESS = {
     'https://www.facebook.com/aegis.coworking',
   ],
 }
+
+// Card links open WhatsApp instead of other websites
+export const WA_INFO = `${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Aegis, I would like more details about your workspace.')}`
 
 export const images = { coworkImg, deskImg, meetingImg, receptionImg, privateImg, boardroomImg }
 
@@ -95,26 +98,26 @@ export const plans = [
     id: 'day', tone: 'mint', name: 'Day pass', price: 'AED 100', unit: '/ day',
     who: 'Try the coworking space Abu Dhabi visitors drop into — no lease, no commitment.',
     perks: ['Full access to the shared coworking floor', 'High-speed WiFi', 'Premium coffee & tea', 'Print & scan access'],
-    link: `${MAIN_SITE}/day-pass`, cta: 'Book a day pass',
+    link: WA_INFO, cta: 'Book a day pass',
   },
   {
     id: 'hot', tone: 'lav', name: 'Hot desk', price: 'AED 1,000', unit: '/ month',
     who: 'A hot desk Al Reem Island freelancers use month to month — perfect when you don’t need a licence address.',
     perks: ['Full access to the shared coworking floor', 'Fast, reliable fibre-optic internet', 'Meeting room credits', 'Invitations to community events', 'Complimentary coffee and tea'],
-    link: `${MAIN_SITE}/office-space`, cta: 'Get a hot desk',
+    link: WA_INFO, cta: 'Get a hot desk',
   },
   {
     id: 'dedicated', tone: 'apricot', name: 'Dedicated desk', price: 'AED 1,150', unit: '/ month',
     who: 'A dedicated desk Al Reem Island founders keep — the lowest-cost desk that comes with an ADGM licence address.',
     perks: ['Office address suitable for an ADGM licence', '24/7 access', 'Dedicated lockers for storage', 'Extra meeting room credits every month', 'Everything in the hot desk plan'],
     note: 'One-time AED 1,200 due-diligence fee.',
-    link: 'https://dedicateddeskadgm.online/', cta: 'Reserve a dedicated desk',
+    link: WA_INFO, cta: 'Reserve a dedicated desk',
   },
   {
     id: 'private', tone: 'butter', name: 'Private office', price: 'From AED 4,500', unit: '/ month',
     who: 'When the team outgrows a shared desk, move into a lockable office on the same floor.',
     perks: ['Office address suitable for an ADGM licence', 'Fully furnished, ready-to-use private office', 'Configurable layout to suit your team', 'All dedicated desk benefits'],
-    link: `${MAIN_SITE}/private-office`, cta: 'See private offices',
+    link: WA_INFO, cta: 'See private offices',
   },
 ]
 
@@ -129,14 +132,10 @@ export const dayStops = [
   { t: '23:00', icon: 'key', title: 'Still going? 24/7 access', text: 'Dedicated desk and private office members can work any hour, any day.' },
 ]
 
+// Two genuine member reviews, word for word — a different pair on each site
 export const testimonials = [
-  { quote: 'Aegis coworking provide super professional services especially with the pricing, and the customer service, i needed the license and a space for one of my team member and they did all within a week time, my team member loved the space. I will highly suggest if any on is looking to get a license and a space in ADGM go for Aegis coworking.', name: 'Ubaid Zia', role: 'Startup Founder' },
-  { quote: 'Very happy with the service from Aegis Coworking. We needed a professional business address in Abu Dhabi without committing to a large traditional office, and Aegis provided a practical solution. The team is responsive and professional.', name: 'Uzair Tahir', role: 'Tech Startup Founder' },
-  { quote: 'I was specifically looking for the cheapest coworking space in ADGM and wanted a privacy environment rather than just a desk. Aegis offered a good balance of price, location, and facilities.', name: 'Naveeda Haseeb', role: 'Startup Founder' },
   { quote: 'We were comparing affordable coworking space in ADGM and found Aegis to be a very practical choice. The workspace feels professional while keeping costs affordable.', name: 'John Paints', role: 'Software Analyst' },
   { quote: 'For businesses looking for a low cost office in ADGM, Aegis provides flexible office space and a professional seating. The team made the setup process very easy.', name: 'Haseeb Awan', role: 'Entrepreneur' },
-  { quote: 'Aegis Coworking is a convenient workspace in Abu Dhabi for startups and growing companies. The flexible workspace options, meeting room and hot desk helped us avoid the commitment of a traditional office.', name: 'Kasim Malikkandy', role: 'Consultant' },
-  { quote: 'Nice suitable area for coworking for Adam incorporation.', name: 'Ali Kutty Faizy', role: 'Entrepreneur' },
 ]
 
 export const guideTags = ['All', 'Desks', 'Cost', 'Location', 'Setup']
@@ -158,22 +157,19 @@ export const faqs = [
   {
     q: 'How much is desk space on Al Reem Island?',
     a: 'At Aegis Coworking in Addax Tower, a hot desk is AED 1,000 per month, a dedicated desk is AED 1,150 per month (plus a one-time AED 1,200 due-diligence fee) and a day pass is AED 100. ADGM government fees are separate.',
-    link: { text: 'ADGM coworking cost in 2026', url: `${MAIN_SITE}/blog/adgm-coworking-space-cost-2026` },
   },
   {
     q: 'What is the difference between a hot desk and a dedicated desk?',
     a: 'A hot desk lets you use any open seat on the shared coworking floor. A dedicated desk is your own permanent desk with 24/7 access, a locker, extra meeting room credits and an office address suitable for an ADGM licence.',
-    link: { text: 'Is a flexi desk enough for a solo business?', url: `${MAIN_SITE}/blog/adgm-flexi-desk-enough-solo-business` },
   },
   {
     q: 'Is Al Reem Island inside ADGM?',
     a: 'Yes. Addax Tower on Al Reem Island is within the Abu Dhabi Global Market (ADGM) jurisdiction, so a desk at Aegis is not just near ADGM — it is inside it.',
-    link: { text: 'Is Al Reem Island part of ADGM?', url: `${MAIN_SITE}/blog/is-al-reem-island-part-of-adgm` },
   },
   {
     q: 'Can I use a desk for my ADGM licence?',
     a: 'Yes, with a dedicated desk. It includes an office address suitable for an ADGM licence application. The hot desk is for working only and does not include a licence address.',
-    link: { text: 'Tech startup licence with a dedicated desk', url: `${MAIN_SITE}/blog/adgm-tech-startup-licence-dedicated-desk` },
+    link: { text: 'Tech start-up licence with a dedicated desk', url: 'https://www.aegiscoworking.ae/blog/adgm-tech-startup-licence-dedicated-desk' },
   },
   {
     q: 'Do desk members get 24/7 access?',
@@ -186,11 +182,11 @@ export const faqs = [
   {
     q: 'Can I try the coworking space before committing?',
     a: 'Yes. A day pass is AED 100 and includes the shared coworking floor, high-speed WiFi, coffee and tea, and print and scan access — no lease and no commitment.',
-    link: { text: 'Day pass coworking in Abu Dhabi', url: `${MAIN_SITE}/blog/day-pass-coworking-abu-dhabi-your-flexible-workday-solved` },
   },
   {
     q: 'Are meeting rooms included with a desk?',
     a: 'Hot desk members get meeting room credits, and dedicated desk members get extra meeting room credits every month. More hours can be booked when you need them.',
+    link: { text: 'Meeting room or private office for client meetings?', url: 'https://www.aegiscoworking.ae/blog/adgm-meeting-room-vs-private-office-client-meetings' },
   },
   {
     q: 'Can I upgrade from a desk to a private office?',
@@ -199,5 +195,13 @@ export const faqs = [
   {
     q: 'How do I book a desk or a tour?',
     a: 'Message us on WhatsApp or call +971 50 392 6316. Tours run Monday to Friday, 9 AM–6 PM, and we can send a video walkthrough if you are abroad.',
+  },
+  {
+    q: 'Do I need a company or licence to rent a hot desk?',
+    a: 'No. The hot desk has no licence requirement, so freelancers and remote workers can simply rent a seat. If you later need an ADGM licence address, switch to a dedicated desk.',
+  },
+  {
+    q: 'Can remote workers employed by a company abroad use the desk space?',
+    a: 'Yes — a hot desk or day pass is simply a place to work. Visa and employment questions are separate and depend on your own situation.',
   },
 ]
