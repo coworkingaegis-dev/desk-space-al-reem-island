@@ -478,3 +478,8 @@ mark { background: var(--butter); color: var(--ink); border-radius: 4px; padding
   .ft-col:last-child { grid-column: span 2; }
   .wa-fab { right: 14px; bottom: 14px; width: 52px; height: 52px; }
 }
+
+/* Only a couple of reviews: show them still, side by side */
+.rv-cols.rv-static { height: auto; -webkit-mask-image: none; mask-image: none; }
+.rv-static .rv-track { animation: none; }
+@media (max-width: 900px) { .rv-static .rv-track { display: grid; width: auto; } .rv-static .rv-card { width: auto; } }
