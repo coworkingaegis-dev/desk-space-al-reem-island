@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { Reveal } from './Motion'
 import Icon from './Icon'
-import { testimonials, guides, guideTags, faqs, images, BUSINESS, MAIN_SITE } from '../data/content'
+import { testimonials, faqs, images, BUSINESS } from '../data/content'
 import { PhoneLink } from './Navbar'
 
 const initials = (n) => n.split(' ').map((p) => p[0]).slice(0, 2).join('')
@@ -10,7 +10,6 @@ function ReviewCard({ t, hidden }) {
   return (
     <li className="rv-card" aria-hidden={hidden || undefined}>
       <figure>
-        <span className="rv-stars" aria-hidden="true">{'★★★★★'}</span>
         <blockquote><p>{t.quote}</p></blockquote>
         <figcaption>
           <span className="rv-av" aria-hidden="true">{initials(t.name)}</span>
@@ -25,11 +24,12 @@ function ReviewCard({ t, hidden }) {
 export function Reviews() {
   const colA = testimonials.filter((_, i) => i % 2 === 0)
   const colB = testimonials.filter((_, i) => i % 2 === 1)
+  const few = testimonials.length <= 3
   const col = (list, dir) => (
     <div className={`rv-col rv-${dir}`}>
       <ul className="rv-track">
         {list.map((t) => <ReviewCard key={t.name} t={t} />)}
-        {list.map((t) => <ReviewCard key={`${t.name}-b`} t={t} hidden />)}
+        {few ? null : list.map((t) => <ReviewCard key={`${t.name}-b`} t={t} hidden />)}
       </ul>
     </div>
   )
@@ -39,10 +39,10 @@ export function Reviews() {
         <div className="rv-copy">
           <p className="kicker">Member reviews</p>
           <h2 id="rev-title">What members say about our coworking space in ADGM</h2>
-          <p>Seven reviews, exactly as published on <a href={`${MAIN_SITE}/`}>aegiscoworking.ae</a>. Hover to pause the scroll.</p>
+          <p>Two of our member reviews, word for word — <a href={BUSINESS.mapsUrl} target="_blank" rel="noopener noreferrer">read more on Google</a>.</p>
           <a className="btn btn-peri" href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer">Ask a member question</a>
         </div>
-        <div className="rv-cols">
+        <div className={`rv-cols ${few ? 'rv-static' : ''}`}>
           {col(colA, 'up')}
           {col(colB, 'down')}
         </div>
@@ -74,7 +74,6 @@ export function NearADGM() {
           </dl>
           <div className="near-ctas">
             <a className="btn btn-peri" href={BUSINESS.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions</a>
-            <a className="link-u" href={`${MAIN_SITE}/blog/is-al-reem-island-part-of-adgm`}>Is Al Reem Island part of ADGM?</a>
           </div>
         </Reveal>
         <div className="near-map">
@@ -94,41 +93,6 @@ export function NearADGM() {
   )
 }
 
-export function Guides() {
-  const [tag, setTag] = useState('All')
-  const list = tag === 'All' ? guides : guides.filter((g) => g.tag === tag)
-  return (
-    <section className="guides sec" id="guides" aria-labelledby="guides-title">
-      <div className="wrap">
-        <div className="head head-row">
-          <div>
-            <p className="kicker">From the Aegis blog</p>
-            <h2 id="guides-title">Guides before you rent a desk</h2>
-          </div>
-          <p>Costs, visas, licences and location — filter by topic. <a href={`${MAIN_SITE}/blogs`}>All articles</a></p>
-        </div>
-        <div className="g-filter" role="group" aria-label="Filter guides by topic">
-          {guideTags.map((t) => (
-            <button key={t} type="button" aria-pressed={tag === t} className={tag === t ? 'on' : ''} onClick={() => setTag(t)}>
-              {t}<span>{t === 'All' ? guides.length : guides.filter((g) => g.tag === t).length}</span>
-            </button>
-          ))}
-        </div>
-        <ul className="g-grid" key={tag}>
-          {list.map((g, i) => (
-            <li key={g.slug} className="g-item" style={{ '--i': i }}>
-              <a href={g.url} className={`g-card g-${g.tag.toLowerCase()}`}>
-                <span className="g-tag">{g.tag}</span>
-                <span className="g-title">{g.title}</span>
-                <span className="g-go" aria-hidden="true"><Icon name="arrow" size={16} /></span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )
-}
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 function Mark({ text, q }) {
